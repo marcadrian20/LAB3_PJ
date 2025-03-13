@@ -19,7 +19,7 @@ public class Produs {
     private float price;
     private int quantity;
     private LocalDate expiryDate;
-    private int sales;
+    private static int sales=0;
 //    public Setter<String> setName=(productName)->this.productName=productName;
 
     public Produs(String productName, float price, int quantity, LocalDate expiryDate) {
@@ -27,7 +27,6 @@ public class Produs {
         this.price = price;
         this.quantity = quantity;
         this.expiryDate = expiryDate;
-        this.sales = 0;
     }
 
     public String getProductName() {
@@ -67,15 +66,12 @@ public class Produs {
         return "Produs: " + productName + " Cantitate: " + quantity + " Pret: " + price + " Data expirare: " + expiryDate.toString();
     }
 
-    public int getSales() {
+    public static int getSales() {
         return sales;
     }
 
-    public void setSales(int sales) {
-        this.sales = sales;
-    }
     public void incrementSales(int increment) {
-        sales +=increment;
+        sales += (int) (increment*this.price);
     }
     public boolean checkExpired()
     {

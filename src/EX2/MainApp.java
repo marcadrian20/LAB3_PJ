@@ -50,6 +50,9 @@ public class MainApp {
                 case 5:
                     exportUnderQuantity(products, keyboard_scanner, flux_out);
                     break;
+                case 6:
+                    System.out.println("Vanzari totale: " + Produs.getSales()+" LEI");
+                    break;
                 case 0:
                     isRunning = false;
                     break;
@@ -60,7 +63,7 @@ public class MainApp {
 
     private static void printMenu() {
         System.out.println("0.Iesire\n1.Afisare lista produse\n2.Afisare produse expirate");
-        System.out.println("3.Vanzare produs\n4.Afisare produse cu pret minim\n5.Salvare in fisier produse sub cantitatea dorita");
+        System.out.println("3.Vanzare produs\n4.Afisare produse cu pret minim\n5.Salvare in fisier produse sub cantitatea dorita\n6.Vanzari totale");
     }
 
     private static void displayExpired(List<Produs> produse) {
@@ -85,13 +88,12 @@ public class MainApp {
                 if (produs.getQuantity() >= quantity) {
                     produs.setQuantity(produs.getQuantity() - quantity);
                     produs.incrementSales(quantity);
-                    System.out.println("Vanzare produs: " + produs.toString());
-                    break;
+                    System.out.println("Vanzare produs: " + produs.toString() + "\nVanzari totale: " + Produs.getSales()+" LEI");
                 } else System.out.println("Nu exista in stoc");
                 if (produs.getQuantity() == 0) {
                     produse.remove(produs);
-                    break;
                 }
+                break;
             } else {
                 System.out.println("Nu exista");
                 break;

@@ -25,6 +25,7 @@ public class MainApp {
 //            parabolas.add(new Parabola(i->Integer.parseInt(parsedString[i])));
             parabolas.add(new Parabola(Integer.parseInt(parsedString[0]), Integer.parseInt(parsedString[1]), Integer.parseInt(parsedString[2])));
         }
+
         for (int i = 0; i < parabolas.size(); i++) {
             System.out.println("Parabola " + (i + 1) + ": " + parabolas.get(i)+"\nVarf: " + parabolas.get(i).getVarf());
         }
